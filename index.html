@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bala Advocacy | Digital Forensics & Employment Dispute Solutions</title>
   <meta name="description" content="Independent employment dispute advocacy and digital forensics. Uncovering objective server logs, RFC transport headers, and biometric data to break false employer defenses.">
+  
+  <!-- Embedded High-DPI Vector Favicon (Gold & Matte Dark) -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%230f1115'/><path d='M8 24V8h6.5c2.5 0 4.5 1.5 4.5 4 0 1.5-.8 2.8-2 3.4 1.6.5 2.8 2 2.8 3.8 0 2.6-2.1 4.8-4.8 4.8H8zm3.5-9.5h3c1 0 1.8-.7 1.8-1.7s-.8-1.7-1.8-1.7h-3v3.4zm0 6.6h3.4c1.2 0 2.1-.8 2.1-2s-.9-2-2.1-2h-3.4v4z' fill='%23d4af37'/><circle cx='24' cy='8' r='2' fill='%23d4af37'/></svg>">
+
   <style>
     :root {
       --bg-dark: #0f1115;
@@ -222,7 +226,6 @@
 
     input[type="text"],
     input[type="email"],
-    input[type="date"],
     select,
     textarea {
       background: #0d1017;
@@ -252,10 +255,12 @@
       gap: 0.5rem;
       font-size: 0.9rem;
       color: var(--parchment);
+      cursor: pointer;
     }
 
     .checkbox-item input {
       accent-color: var(--gold);
+      cursor: pointer;
     }
 
     .btn-submit {
@@ -270,6 +275,9 @@
       font-size: 0.95rem;
       transition: background 0.15s ease;
       width: 100%;
+      text-align: center;
+      text-decoration: none;
+      display: block;
     }
 
     .btn-submit:hover {
@@ -299,7 +307,7 @@
         <div class="brand-tagline">Digital Forensics • Procedural Rigour • Employee Justice</div>
       </div>
       <div class="header-contact">
-        Direct Instructions: <a href="mailto:support@balaadvocacy.com">support@balaadvocacy.com</a>
+        Direct Desk: <a href="mailto:support@balaadvocacy.com">support@balaadvocacy.com</a>
       </div>
     </header>
 
@@ -328,7 +336,7 @@
             <li>Includes statutory ICO referral escalation script</li>
           </ul>
         </div>
-        <a href="#intake" class="btn-submit" style="text-align: center; text-decoration: none;">Instruct Module 1</a>
+        <a href="#intake" class="btn-submit" onclick="selectModule('Module 1 (£125)')">Select Module 1</a>
       </div>
 
       <!-- Module 2 -->
@@ -344,7 +352,7 @@
             <li>Calculates commercial settlement leverage</li>
           </ul>
         </div>
-        <a href="#intake" class="btn-submit" style="text-align: center; text-decoration: none;">Instruct Module 2</a>
+        <a href="#intake" class="btn-submit" onclick="selectModule('Module 2 (£275)')">Select Module 2</a>
       </div>
 
       <!-- Module 3 -->
@@ -360,63 +368,64 @@
             <li>Designed to force early commercial surrender</li>
           </ul>
         </div>
-        <a href="#intake" class="btn-submit" style="text-align: center; text-decoration: none;">Instruct Module 3</a>
+        <a href="#intake" class="btn-submit" onclick="selectModule('Module 3 (£450)')">Select Module 3</a>
       </div>
     </div>
 
     <section id="intake" class="form-wrapper">
       <h2 class="section-title" style="border: none; margin-bottom: 0.5rem;">Case Assessment & Intake</h2>
       <p style="color: var(--parchment-muted); font-size: 0.9rem; margin-bottom: 2rem;">
-        Submit your dispute parameters. All submissions are held in strict professional confidence.
+        Complete this diagnostic. Clicking the button will format your responses into an encrypted email transmission to <strong>support@balaadvocacy.com</strong>.
       </p>
 
-      <form action="mailto:support@balaadvocacy.com" method="POST" enctype="text/plain">
+      <form id="intakeForm" onsubmit="handleMailtoSubmit(event)">
         <div class="form-grid">
           <div class="form-group">
             <label for="name">Full Name</label>
-            <input type="text" id="name" name="Name" required placeholder="Jane Doe">
+            <input type="text" id="name" required placeholder="e.g. Jane Doe">
           </div>
           <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="Email" required placeholder="jane@example.co.uk">
+            <label for="email">Your Email Address</label>
+            <input type="email" id="email" required placeholder="e.g. jane@example.co.uk">
           </div>
           <div class="form-group">
             <label for="employer">Employer / Company Name</label>
-            <input type="text" id="employer" name="Employer" required placeholder="Company Ltd">
+            <input type="text" id="employer" required placeholder="e.g. Luxury Estate Ltd">
           </div>
           <div class="form-group">
-            <label for="module">Select Service Module</label>
-            <select id="module" name="Selected Module">
-              <option value="Module 1 (£125)">Module 1: Forensic DSAR Pack (£125)</option>
-              <option value="Module 2 (£275)">Module 2: ET3 Contradiction Audit (£275)</option>
-              <option value="Module 3 (£450)">Module 3: Interlocutory Strike Pack (£450)</option>
-              <option value="General Assessment">General Diagnostic Assessment / LEI Check</option>
+            <label for="moduleSelect">Selected Service Module</label>
+            <select id="moduleSelect">
+              <option value="Module 1 (£125): Forensic DSAR Pack">Module 1: Forensic DSAR Pack (£125)</option>
+              <option value="Module 2 (£275): ET3 Contradiction Audit">Module 2: ET3 Contradiction Audit (£275)</option>
+              <option value="Module 3 (£450): Interlocutory Strike Pack">Module 3: Interlocutory Strike Pack (£450)</option>
+              <option value="General Dispute Diagnostic / LEI Assessment">General Diagnostic / Legal Expenses Insurance Check</option>
             </select>
           </div>
         </div>
 
         <div class="form-group-full">
-          <label>Employer Systems Used (Tick all that apply)</label>
+          <label>Employer Systems Used (Select all that apply)</label>
           <div class="checkbox-group">
-            <label class="checkbox-item"><input type="checkbox" name="System_Fourth" value="Yes"> Fourth Engage / Biometrics</label>
-            <label class="checkbox-item"><input type="checkbox" name="System_M365" value="Yes"> Microsoft 365 / Exchange</label>
-            <label class="checkbox-item"><input type="checkbox" name="System_EmailSecurity" value="Yes"> Ironscales / Mimecast</label>
-            <label class="checkbox-item"><input type="checkbox" name="System_WhatsApp" value="Yes"> WhatsApp / Slack</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="Fourth Engage / Biometric Punch"> Fourth Engage / Biometrics</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="Microsoft 365 / Exchange"> Microsoft 365 / Exchange</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="Ironscales / Mimecast / Mail Gateway"> Ironscales / Mimecast</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="WhatsApp / Slack / Teams"> WhatsApp / Slack / Teams</label>
+            <label class="checkbox-item"><input type="checkbox" name="systems" value="Home Legal Expenses Insurance Available"> Home Legal Expenses Insurance (LEI) Held</label>
           </div>
         </div>
 
         <div class="form-group-full">
-          <label for="summary">Factual Discrepancy / Core Dispute Details</label>
-          <textarea id="summary" name="Case Summary" rows="5" required placeholder="Describe the key factual issue (e.g., 'Employer claims I did not provide notice of safety risks,' or 'Employer denies I worked excessive 14-hour shifts')."></textarea>
+          <label for="summary">Core Factual Discrepancy & Dispute Timeline</label>
+          <textarea id="summary" rows="5" required placeholder="Detail the core issue (e.g., 'Employer denied in ET3 Paragraph X that I submitted notice of hazard on date Y, but I have outbound logs,' or 'Worked 14-hour shift not reflected on paper rotas')."></textarea>
         </div>
 
-        <button type="submit" class="btn-submit">Submit Diagnostic to Forensic Desk</button>
+        <button type="submit" class="btn-submit">Transmit Case Brief to support@balaadvocacy.com</button>
       </form>
     </section>
 
     <footer>
       <p>
-        <strong>Regulatory Standing & Disclaimer:</strong> Bala Advocacy is an independent dispute consultancy and lay representation service operating under Rule 86 of the Employment Tribunals Rules of Procedure 2024. We specialize in digital evidence auditing, Subject Access Request compliance, and procedural tribunal support. 
+        <strong>Regulatory Standing & Disclaimer:</strong> Bala Advocacy is an independent dispute consultancy and lay representation service operating under Rule 86 of the Employment Tribunals Rules of Procedure. We specialize in digital evidence auditing, Subject Access Request compliance, and procedural tribunal support.
       </p>
       <p>
         Bala Advocacy is not an SRA-regulated law firm and does not conduct reserved legal activities under the Legal Services Act 2007. Services are provided on a fixed-fee consultancy basis, direct insurer billing (LEI), or via statutory Preparation Time recovery under Rule 76/77 of the Employment Tribunal Rules.
@@ -425,5 +434,57 @@
     </footer>
   </div>
 
+  <script>
+    function selectModule(moduleName) {
+      const select = document.getElementById('moduleSelect');
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].text.includes(moduleName)) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    }
+
+    function handleMailtoSubmit(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const employer = document.getElementById('employer').value.trim();
+      const selectedModule = document.getElementById('moduleSelect').value;
+      const summary = document.getElementById('summary').value.trim();
+
+      const checkedSystems = [];
+      document.querySelectorAll('input[name="systems"]:checked').forEach(cb => {
+        checkedSystems.push(cb.value);
+      });
+      const systemsList = checkedSystems.length > 0 ? checkedSystems.join(', ') : 'None specified';
+
+      const subject = encodeURIComponent(`NEW CASE BRIEF: ${name} v ${employer} [${selectedModule}]`);
+      
+      const bodyText = 
+`BALA ADVOCACY - INCOMING INTAKE BRIEF
+--------------------------------------------------
+CLIENT DETAILS:
+- Full Name: ${name}
+- Email: ${email}
+- Employer / Respondent: ${employer}
+
+SERVICE REQUESTED:
+- Selected Module: ${selectedModule}
+
+TECHNICAL FOOTPRINT:
+- Systems / Insurance Identified: ${systemsList}
+
+FACTUAL DISCREPANCY & SUMMARY:
+${summary}
+
+--------------------------------------------------
+[Transmission generated via balaadvocacy.com portal]`;
+
+      const body = encodeURIComponent(bodyText);
+      window.location.href = `mailto:support@balaadvocacy.com?subject=${subject}&body=${body}`;
+    }
+  </script>
 </body>
 </html>
