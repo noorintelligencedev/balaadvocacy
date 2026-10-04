@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bala Advocacy | Digital Forensics & Employment Dispute Solutions</title>
+  <meta name="description" content="Independent employment dispute advocacy and digital forensics. Uncovering objective server logs, RFC transport headers, and biometric data to break false employer defenses.">
+  <style>
+    :root {
+      --bg-dark: #0f1115;
+      --card-bg: #161a22;
+      --card-border: #262c3a;
+      --parchment: #e6dfd3;
+      --parchment-muted: #a69f92;
+      --gold: #d4af37;
+      --gold-hover: #b89628;
+      --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--parchment);
+      font-family: var(--font-stack);
+      line-height: 1.6;
+      padding: 0 1.25rem;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.5rem 0 5rem 0;
+    }
+
+    /* Header */
+    header {
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 2rem;
+      margin-bottom: 3.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .brand-title {
+      font-size: 1.5rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--parchment);
+    }
+
+    .brand-tagline {
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      color: var(--gold);
+      text-transform: uppercase;
+    }
+
+    .header-contact {
+      font-size: 0.9rem;
+      color: var(--parchment-muted);
+    }
+
+    .header-contact a {
+      color: var(--parchment);
+      text-decoration: none;
+      border-bottom: 1px solid var(--gold);
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: left;
+      margin-bottom: 4rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.2;
+      font-weight: 700;
+      margin-bottom: 1.25rem;
+      color: #ffffff;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--parchment-muted);
+      max-width: 780px;
+      margin-bottom: 1.5rem;
+    }
+
+    .lei-banner {
+      background: rgba(212, 175, 55, 0.08);
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.25rem;
+      margin-top: 2rem;
+      font-size: 0.95rem;
+      color: var(--parchment);
+    }
+
+    /* Pricing & Modules */
+    .section-title {
+      font-size: 1.6rem;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+      border-bottom: 1px solid var(--card-border);
+      padding-bottom: 0.5rem;
+    }
+
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4.5rem;
+    }
+
+    .module-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .module-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .module-card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      color: #ffffff;
+    }
+
+    .module-price {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--parchment);
+      margin-bottom: 1rem;
+    }
+
+    .module-desc {
+      font-size: 0.95rem;
+      color: var(--parchment-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .module-features {
+      list-style: none;
+      font-size: 0.88rem;
+      border-top: 1px solid var(--card-border);
+      padding-top: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .module-features li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.2rem;
+      color: var(--parchment);
+    }
+
+    .module-features li::before {
+      content: "•";
+      color: var(--gold);
+      position: absolute;
+      left: 0;
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    /* Intake Form */
+    .form-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      padding: clamp(1.5rem, 3vw, 3rem);
+      margin-bottom: 4rem;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .form-group-full {
+      grid-column: 1 / -1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      color: var(--parchment-muted);
+      text-transform: uppercase;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    select,
+    textarea {
+      background: #0d1017;
+      border: 1px solid var(--card-border);
+      color: var(--parchment);
+      padding: 0.75rem;
+      font-size: 0.95rem;
+      border-radius: 2px;
+      font-family: inherit;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+    }
+
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0.75rem;
+      padding: 0.5rem 0;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.9rem;
+      color: var(--parchment);
+    }
+
+    .checkbox-item input {
+      accent-color: var(--gold);
+    }
+
+    .btn-submit {
+      background: var(--gold);
+      color: #0f1115;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      border: none;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      font-size: 0.95rem;
+      transition: background 0.15s ease;
+      width: 100%;
+    }
+
+    .btn-submit:hover {
+      background: var(--gold-hover);
+    }
+
+    /* Footer & Regulatory Notice */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding-top: 2rem;
+      font-size: 0.8rem;
+      color: var(--parchment-muted);
+      line-height: 1.7;
+    }
+
+    footer p {
+      margin-bottom: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div>
+        <div class="brand-title">Bala Advocacy</div>
+        <div class="brand-tagline">Digital Forensics • Procedural Rigour • Employee Justice</div>
+      </div>
+      <div class="header-contact">
+        Direct Instructions: <a href="mailto:support@balaadvocacy.com">support@balaadvocacy.com</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Employers rely on polished narratives.<br>We hold them to their own data.</h1>
+      <p>
+        In an Employment Tribunal, assertions without documentation are worthless. When corporate respondents stonewall, alter rotas, or plead an inability to investigate, we extract the native email headers, server audit records, and raw biometric punches that prove the truth.
+      </p>
+      <div class="lei-banner">
+        <strong>Legal Expenses Insurance Notice:</strong> Over 50% of UK homeowners and tenants hold Legal Expenses Insurance (LEI) attached to household policies covering £50,000–£100,000 in employment disputes. We can often bill your insurer directly, leaving you with zero out-of-pocket costs.
+      </div>
+    </section>
+
+    <h2 class="section-title">Forensic Service Modules</h2>
+    <div class="modules-grid">
+      <!-- Module 1 -->
+      <div class="module-card">
+        <div>
+          <span class="module-badge">Module 1</span>
+          <h3>Forensic DSAR Pack</h3>
+          <div class="module-price">£125</div>
+          <p class="module-desc">A surgically targeted Data Subject Access Request demanding native electronic data, rather than curated employer printouts.</p>
+          <ul class="module-features">
+            <li>Targets RFC 5322 headers & .eml stores</li>
+            <li>Demands Fourth Engage / biometric database logs</li>
+            <li>Includes statutory ICO referral escalation script</li>
+          </ul>
+        </div>
+        <a href="#intake" class="btn-submit" style="text-align: center; text-decoration: none;">Instruct Module 1</a>
+      </div>
+
+      <!-- Module 2 -->
+      <div class="module-card">
+        <div>
+          <span class="module-badge">Module 2</span>
+          <h3>ET3 Contradiction Audit</h3>
+          <div class="module-price">£275</div>
+          <p class="module-desc">A line-by-line forensic cross-reference of the employer's sworn ET3 Grounds of Resistance against internal records.</p>
+          <ul class="module-features">
+            <li>Identifies fatal discrepancies and false pleadings</li>
+            <li>Multi-column contradiction schedule for Acas</li>
+            <li>Calculates commercial settlement leverage</li>
+          </ul>
+        </div>
+        <a href="#intake" class="btn-submit" style="text-align: center; text-decoration: none;">Instruct Module 2</a>
+      </div>
+
+      <!-- Module 3 -->
+      <div class="module-card">
+        <div>
+          <span class="module-badge">Module 3</span>
+          <h3>Interlocutory Strike Pack</h3>
+          <div class="module-price">£450</div>
+          <p class="module-desc">Formal court applications under the Employment Tribunal Rules compelling disclosure or putting counsel on notice for unreasonable conduct.</p>
+          <ul class="module-features">
+            <li>Rule 31 specific disclosure application</li>
+            <li>Rule 76 Preparation Time costs warnings</li>
+            <li>Designed to force early commercial surrender</li>
+          </ul>
+        </div>
+        <a href="#intake" class="btn-submit" style="text-align: center; text-decoration: none;">Instruct Module 3</a>
+      </div>
+    </div>
+
+    <section id="intake" class="form-wrapper">
+      <h2 class="section-title" style="border: none; margin-bottom: 0.5rem;">Case Assessment & Intake</h2>
+      <p style="color: var(--parchment-muted); font-size: 0.9rem; margin-bottom: 2rem;">
+        Submit your dispute parameters. All submissions are held in strict professional confidence.
+      </p>
+
+      <form action="mailto:support@balaadvocacy.com" method="POST" enctype="text/plain">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="Name" required placeholder="Jane Doe">
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="Email" required placeholder="jane@example.co.uk">
+          </div>
+          <div class="form-group">
+            <label for="employer">Employer / Company Name</label>
+            <input type="text" id="employer" name="Employer" required placeholder="Company Ltd">
+          </div>
+          <div class="form-group">
+            <label for="module">Select Service Module</label>
+            <select id="module" name="Selected Module">
+              <option value="Module 1 (£125)">Module 1: Forensic DSAR Pack (£125)</option>
+              <option value="Module 2 (£275)">Module 2: ET3 Contradiction Audit (£275)</option>
+              <option value="Module 3 (£450)">Module 3: Interlocutory Strike Pack (£450)</option>
+              <option value="General Assessment">General Diagnostic Assessment / LEI Check</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group-full">
+          <label>Employer Systems Used (Tick all that apply)</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item"><input type="checkbox" name="System_Fourth" value="Yes"> Fourth Engage / Biometrics</label>
+            <label class="checkbox-item"><input type="checkbox" name="System_M365" value="Yes"> Microsoft 365 / Exchange</label>
+            <label class="checkbox-item"><input type="checkbox" name="System_EmailSecurity" value="Yes"> Ironscales / Mimecast</label>
+            <label class="checkbox-item"><input type="checkbox" name="System_WhatsApp" value="Yes"> WhatsApp / Slack</label>
+          </div>
+        </div>
+
+        <div class="form-group-full">
+          <label for="summary">Factual Discrepancy / Core Dispute Details</label>
+          <textarea id="summary" name="Case Summary" rows="5" required placeholder="Describe the key factual issue (e.g., 'Employer claims I did not provide notice of safety risks,' or 'Employer denies I worked excessive 14-hour shifts')."></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">Submit Diagnostic to Forensic Desk</button>
+      </form>
+    </section>
+
+    <footer>
+      <p>
+        <strong>Regulatory Standing & Disclaimer:</strong> Bala Advocacy is an independent dispute consultancy and lay representation service operating under Rule 86 of the Employment Tribunals Rules of Procedure 2024. We specialize in digital evidence auditing, Subject Access Request compliance, and procedural tribunal support. 
+      </p>
+      <p>
+        Bala Advocacy is not an SRA-regulated law firm and does not conduct reserved legal activities under the Legal Services Act 2007. Services are provided on a fixed-fee consultancy basis, direct insurer billing (LEI), or via statutory Preparation Time recovery under Rule 76/77 of the Employment Tribunal Rules.
+      </p>
+      <p>© 2026 Bala Advocacy. Somerset, United Kingdom. All rights reserved.</p>
+    </footer>
+  </div>
+
+</body>
+</html>
